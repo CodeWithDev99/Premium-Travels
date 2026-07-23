@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-surface text-primary antialiased;
+}
+
+::selection {
+  @apply bg-secondary/40 text-primary;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-surface;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/50;
+}
+
+@layer components {
+  .container-wrap {
+    @apply max-w-8xl mx-auto px-5 sm:px-8 lg:px-12;
+  }
+
+  .section-pad {
+    @apply py-20 md:py-28;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-premium bg-primary px-7 py-3.5 font-semibold text-white transition-all duration-300 hover:bg-secondary hover:text-primary hover:shadow-soft active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-premium bg-secondary px-7 py-3.5 font-semibold text-primary transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-soft active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-premium border-2 border-white/40 bg-white/5 px-7 py-3.5 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-secondary hover:bg-secondary hover:text-primary;
+  }
+
+  .card-base {
+    @apply rounded-premium bg-white shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-soft;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-secondary/15 px-4 py-1.5 text-sm font-semibold text-primary;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-primary/10 bg-surface px-4 py-3.5 text-sm text-primary placeholder:text-primary/40 outline-none transition-all focus:border-secondary focus:ring-2 focus:ring-secondary/30;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-[2.6rem] font-bold text-primary leading-tight;
+  }
+
+  .section-eyebrow {
+    @apply badge mb-4;
+  }
+  
+}
