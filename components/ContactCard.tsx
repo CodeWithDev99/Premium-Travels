@@ -15,12 +15,6 @@ export default function ContactCard() {
       value: "24 Hours",
       sub: "Every Day",
     },
-    {
-      icon: Mail,
-      label: "Email",
-      value: SITE.email,
-      sub: "Write to us anytime",
-    },
   ];
 
   return (
