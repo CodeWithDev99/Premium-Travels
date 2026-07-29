@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { Car, Facebook, Instagram, MessageCircle } from "lucide-react";
+import { Car, Facebook, Instagram, Link, MessageCircle } from "lucide-react";
 import { NAV_LINKS, SITE, WHATSAPP_LINK } from "@/lib/constants";
 import { locations } from "@/data/locations";
 
