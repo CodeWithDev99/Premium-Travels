@@ -50,7 +50,6 @@ export default function Footer() {
           <h4 className="text-white font-semibold mb-4">Contact</h4>
           <ul className="space-y-2.5 text-sm">
             <li>{SITE.phoneDisplay}</li>
-            <li>{SITE.email}</li>
             <li>{SITE.addressArea}</li>
           </ul>
           <div className="flex gap-3 mt-5">
