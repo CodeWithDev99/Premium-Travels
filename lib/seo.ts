@@ -70,7 +70,7 @@ export function localBusinessSchema() {
     image: `${SITE.domain}/images/hero/hero-1.jpg`,
     url: SITE.domain,
     telephone: `+91${SITE.phone}`,
-    email: SITE.email,
+    // email: SITE.email,
     priceRange: "₹₹",
     address: {
       "@type": "PostalAddress",

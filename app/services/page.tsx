@@ -54,6 +54,7 @@ export default function ServicesPage() {
         backgroundImage="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1600&q=80"
       />
 
+      {/* Service Categories — Simple Grid */}
       <section className="section-pad">
         <div className="container-wrap">
           <SectionTitle
@@ -61,9 +62,16 @@ export default function ServicesPage() {
             title="Complete Travel Solutions"
             description="From daily commutes to special occasions, we handle every kind of journey."
           />
-          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
+
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, i) => (
-              <ServiceCard key={service.id} {...service} index={i} />
+              <div
+                key={service.id}
+                style={{ animationDelay: `${i * 60}ms` }}
+                className="animate-fade-up opacity-0 rounded-2xl bg-white border border-primary/10 p-6 shadow-card hover:shadow-soft transition-shadow duration-300"
+              >
+                <ServiceCard {...service} index={i} />
+              </div>
             ))}
           </div>
         </div>
@@ -73,51 +81,55 @@ export default function ServicesPage() {
       <section className="section-pad bg-white">
         <div className="container-wrap">
           <SectionTitle eyebrow="Compare" title="Baleno vs Ertiga" description="Pick the perfect ride for your journey." />
-          <div className="mt-14 max-w-4xl mx-auto rounded-premium overflow-hidden shadow-card">
-            <div className="grid grid-cols-3 bg-primary text-white text-center text-sm sm:text-base font-semibold">
-              <div className="p-4 sm:p-5 text-left pl-6">Feature</div>
-              <div className="p-4 sm:p-5">Baleno (5 Seater)</div>
-              <div className="p-4 sm:p-5">Ertiga (7 Seater)</div>
-            </div>
-            {[
-              { label: "City Rides", baleno: true, ertiga: true },
-              { label: "Family Trips", baleno: false, ertiga: true },
-              { label: "Business Travel", baleno: true, ertiga: true },
-              { label: "Large Luggage", baleno: false, ertiga: true },
-              { label: "Fuel Efficiency", baleno: true, ertiga: false },
-              { label: "Railway Trips", baleno: true, ertiga: true },
-            ].map((row, i) => (
-              <div
-                key={row.label}
-                className={`grid grid-cols-3 text-center text-sm ${i % 2 === 0 ? "bg-surface" : "bg-white"}`}
-              >
-                <div className="p-4 text-left pl-6 font-medium text-primary/80">{row.label}</div>
-                <div className="p-4 flex justify-center">
-                  {row.baleno ? (
-                    <CheckCircle2 className="h-5 w-5 text-secondary-dark" />
-                  ) : (
-                    <XCircle className="h-5 w-5 text-primary/20" />
-                  )}
-                </div>
-                <div className="p-4 flex justify-center">
-                  {row.ertiga ? (
-                    <CheckCircle2 className="h-5 w-5 text-secondary-dark" />
-                  ) : (
-                    <XCircle className="h-5 w-5 text-primary/20" />
-                  )}
-                </div>
-              </div>
-            ))}
+
+          <div className="mt-14 max-w-3xl mx-auto rounded-2xl border border-primary/10 overflow-hidden">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-surface text-primary">
+                  <th className="p-4 text-left font-semibold">Feature</th>
+                  <th className="p-4 font-semibold">Baleno (5 Seater)</th>
+                  <th className="p-4 font-semibold">Ertiga (7 Seater)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { label: "City Rides", baleno: true, ertiga: true },
+                  { label: "Family Trips", baleno: false, ertiga: true },
+                  { label: "Business Travel", baleno: true, ertiga: true },
+                  { label: "Large Luggage", baleno: false, ertiga: true },
+                  { label: "Fuel Efficiency", baleno: true, ertiga: false },
+                  { label: "Railway Trips", baleno: true, ertiga: true },
+                ].map((row) => (
+                  <tr key={row.label} className="border-t border-primary/10">
+                    <td className="p-4 font-medium text-primary/80">{row.label}</td>
+                    <td className="p-4 text-center">
+                      {row.baleno ? (
+                        <CheckCircle2 className="inline h-5 w-5 text-secondary-dark" />
+                      ) : (
+                        <XCircle className="inline h-5 w-5 text-primary/20" />
+                      )}
+                    </td>
+                    <td className="p-4 text-center">
+                      {row.ertiga ? (
+                        <CheckCircle2 className="inline h-5 w-5 text-secondary-dark" />
+                      ) : (
+                        <XCircle className="inline h-5 w-5 text-primary/20" />
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
 
-          <div className="mt-10 grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="mt-10 grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {cars.map((car) => (
-              <div key={car.id} className="flex items-center gap-4 rounded-2xl bg-surface p-5">
-                <div className="relative h-16 w-24 shrink-0">
-                  <Image src={car.image} alt={car.name} fill sizes="96px" className="object-cover rounded-lg" />
+              <div key={car.id} className="flex items-center gap-4 rounded-xl bg-surface p-4">
+                <div className="relative h-14 w-20 shrink-0">
+                  <Image src={car.image} alt={car.name} fill sizes="80px" className="object-cover rounded-lg" />
                 </div>
                 <div>
-                  <p className="font-semibold text-primary">{car.brand} {car.name}</p>
+                  <p className="font-semibold text-primary text-sm">{car.brand} {car.name}</p>
                   <p className="text-xs text-primary/50">{car.tagline}</p>
                 </div>
               </div>

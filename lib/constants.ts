@@ -5,10 +5,9 @@ export const SITE = {
   phone: "8555961443",
   phoneDisplay: "+91 85559 61443",
   whatsapp: "918555961443",
-  email: "ssvtejatravels@gmail.com",
   owner: "Siva Teja",
   addressArea: "Bhimavaram, West Godavari, Andhra Pradesh",
-  foundingYear: "2020",
+  foundingYear: "2018",
 };
 
 export const NAV_LINKS = [
@@ -18,6 +17,7 @@ export const NAV_LINKS = [
   { label: "Our Gallery", href: "/gallery" },
   { label: "Services", href: "/services" },
   { label: "Contact", href: "/contact" },
+  { label: "Just Dial", href: "/justDial" },
 ];
 
 export const WHATSAPP_LINK = (message?: string) =>
